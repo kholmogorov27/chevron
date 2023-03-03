@@ -1,15 +1,15 @@
 /* Onest (default font) */
 @font-face {
   font-family: 'Onest';
-  src: url('../fonts/Onest/OnestMedium.ttf');
+  src: url('./fonts/Onest/OnestMedium.ttf');
 }
 @font-face {
   font-family: 'Onest Bold';
-  src: url('../fonts/Onest/OnestExtraBold.ttf');
+  src: url('./fonts/Onest/OnestExtraBold.ttf');
 }
 @font-face {
   font-family: 'Onest Light';
-  src: url('../fonts/Onest/OnestThin.ttf');
+  src: url('./fonts/Onest/OnestThin.ttf');
 }
 
 :root {
@@ -20,11 +20,11 @@
 /* 
 @font-face {
   font-family: 'Blogger Sans';
-  src: url('../fonts/Blogger Sans/Blogger Sans Bold.ttf');
+  src: url('./fonts/Blogger Sans/Blogger Sans Bold.ttf');
 }
 @font-face {
   font-family: 'Blogger Sans Light';
-  src: url('../fonts/Blogger Sans/Blogger Sans Light.ttf.ttf');
+  src: url('./fonts/Blogger Sans/Blogger Sans Light.ttf.ttf');
 } 
 */
 
@@ -32,11 +32,11 @@
 /* 
 @font-face {
   font-family: 'Uni Sans';
-  src: url('../fonts/Uni Sans/Uni Sans Heavy.otf');
+  src: url('./fonts/Uni Sans/Uni Sans Heavy.otf');
 }
 @font-face {
   font-family: 'Uni Sans Light';
-  src: url('../fonts/Uni Sans/Uni Sans Thin.otf');
+  src: url('./fonts/Uni Sans/Uni Sans Thin.otf');
 } 
 */
 
@@ -44,7 +44,7 @@
 /* 
 @font-face {
   font-family: 'Rubik';
-  src: url('../fonts/Rubik/Rubik.ttf');
+  src: url('./fonts/Rubik/Rubik.ttf');
 } 
 */
 
@@ -52,11 +52,11 @@
 /* 
 @font-face {
   font-family: 'Figtree';
-  src: url('../fonts/Figtree/Figtree-VariableFont_wght.ttf');
+  src: url('./fonts/Figtree/Figtree-VariableFont_wght.ttf');
 }
 @font-face {
   font-family: 'Figtree';
-  src: url('../fonts/Figtree/Figtree-Italic-VariableFont_wght.ttf');
+  src: url('./fonts/Figtree/Figtree-Italic-VariableFont_wght.ttf');
   font-style: italic;
 } 
 */
@@ -65,6 +65,6 @@
 /* 
 @font-face {
   font-family: 'Public Sans';
-  src: url('../fonts/Public Sans/PublicSans-Regular.ttf');
+  src: url('./fonts/Public Sans/PublicSans-Regular.ttf');
 } 
 */
