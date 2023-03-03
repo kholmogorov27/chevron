@@ -1,0 +1,70 @@
+/* Onest (default font) */
+@font-face {
+  font-family: 'Onest';
+  src: url('./fonts/Onest/OnestMedium.ttf');
+}
+@font-face {
+  font-family: 'Onest Bold';
+  src: url('./fonts/Onest/OnestExtraBold.ttf');
+}
+@font-face {
+  font-family: 'Onest Light';
+  src: url('./fonts/Onest/OnestThin.ttf');
+}
+
+:root {
+  --font: 'Onest Bold'
+}
+
+/* Blogger Sans */
+/* 
+@font-face {
+  font-family: 'Blogger Sans';
+  src: url('./fonts/Blogger Sans/Blogger Sans Bold.ttf');
+}
+@font-face {
+  font-family: 'Blogger Sans Light';
+  src: url('./fonts/Blogger Sans/Blogger Sans Light.ttf.ttf');
+} 
+*/
+
+/* Uni Sans */
+/* 
+@font-face {
+  font-family: 'Uni Sans';
+  src: url('./fonts/Uni Sans/Uni Sans Heavy.otf');
+}
+@font-face {
+  font-family: 'Uni Sans Light';
+  src: url('./fonts/Uni Sans/Uni Sans Thin.otf');
+} 
+*/
+
+/* Rubik */
+/* 
+@font-face {
+  font-family: 'Rubik';
+  src: url('./fonts/Rubik/Rubik.ttf');
+} 
+*/
+
+/* Figtree */
+/* 
+@font-face {
+  font-family: 'Figtree';
+  src: url('./fonts/Figtree/Figtree-VariableFont_wght.ttf');
+}
+@font-face {
+  font-family: 'Figtree';
+  src: url('./fonts/Figtree/Figtree-Italic-VariableFont_wght.ttf');
+  font-style: italic;
+} 
+*/
+
+/* Public Sans (Joy UI dependency) */
+/* 
+@font-face {
+  font-family: 'Public Sans';
+  src: url('./fonts/Public Sans/PublicSans-Regular.ttf');
+} 
+*/

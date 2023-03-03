@@ -1,0 +1,23 @@
+.container {
+  width: 100%;
+  position: relative;
+  margin-left: calc(50vh + 5vw); 
+  margin-right: 5vw;
+}
+
+.field {
+  outline: none;
+  background: transparent;
+  padding: 0;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  resize: none;
+  border: none;
+  color: var(--query);
+  font-size: var(--font-size);
+  text-align: center;
+  text-transform: uppercase;
+  font-family: inherit;
+  cursor: default;
+}

@@ -1,0 +1,24 @@
+.container {
+  top: 1em;
+  left: 50vw;
+  transform: translateX(-50%);
+  position: absolute;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  gap: 5px;
+  font-size: 1.3em;
+}
+
+.title > svg {
+  color: var(--accent);
+}
+
+.description {
+  margin-top: 10px;
+  text-align: center;
+}

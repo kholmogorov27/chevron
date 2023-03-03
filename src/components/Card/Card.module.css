@@ -1,0 +1,140 @@
+.card {
+  position: relative;
+  aspect-ratio: 1;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 1px;
+  border-radius: 10%;
+  overflow: hidden;
+}
+.card::before {
+  display: block;
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: var(--card);
+}
+/* dark theme (default) */
+.card::before {
+  filter: brightness(130%);
+}
+.card:hover::before {
+  filter: brightness(150%);
+}
+.card:active::before {
+  filter: brightness(175%);
+}
+/* light theme */
+body[data-color-scheme=light] .card::before {
+  filter: brightness(88%);
+}
+body[data-color-scheme=light] .card:hover::before {
+  filter: brightness(80%);
+}
+body[data-color-scheme=light] .card:active::before {
+  filter: brightness(75%);
+}
+
+.card, .card * {
+  transition: all .25s;
+  cursor: pointer;
+}
+.card > * {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card.realistic:active > .logo-wrapper {
+  transform: scale(.95) !important;
+}
+.card.clicked * {
+  cursor: default;
+}
+/* realistic mode */
+.card.realistic:active {
+  box-shadow: 0 0 10px 1px black inset;
+}
+
+.hint {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--card);
+  font-size: 250%;
+  opacity: 0;
+  transform: rotate(35deg) translate(-10%);
+  transition: all .2s;
+}
+/* dark theme (default) */
+.hint {
+  filter: brightness(180%);
+}
+/* light theme */
+body[data-color-scheme=light] .hint {
+  filter: brightness(80%);
+}
+.hint.active {
+  transform: rotate(35deg) translate(20%);
+  opacity: 1;
+  transition: all 2.5s ease;
+}
+
+.plate {
+  position: absolute;
+  width: 60%;
+  aspect-ratio: 1;
+  z-index: 10;
+  border-radius: 50%;
+  background: var(--secondary);
+  background-repeat: no-repeat;
+  background-size: 200% 200%;
+  background-position: right top;
+  transition: background-size .6s, opacity .3s ease-out;
+}
+.card:hover .plate, .card:active .plate, .plate.detached {
+  background-size: 100% 100%;
+}
+.plate::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #2a2a2a;
+  transition: opacity .6s;
+}
+/* dark theme (default) */
+.plate::before {
+  opacity: .3;
+}
+.card:hover .plate::before, .card:active .plate::before, .plate.detached::before {
+  opacity: .1;
+}
+/* light theme */
+body[data-color-scheme=light] .plate::before {
+  opacity: .2;
+}
+body[data-color-scheme=light] .card:hover .plate::before,
+body[data-color-scheme=light] .card:active .plate::before, 
+body[data-color-scheme=light] .plate.detached::before {
+  opacity: 0;
+}
+
+.logo-wrapper {
+  height: 100%;
+}
+.logo {
+  width: 40%;
+  margin: 10%;
+  z-index: 11;
+}
+
+.logo svg {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,19 @@
+.container {
+  position: absolute;
+  margin: 1.5em;
+  cursor: pointer;
+  z-index: 100;
+  transition: all .3s;
+}
+.container.visited {
+  opacity: 0;
+}
+.container.visited:hover {
+  opacity: 1;
+}
+
+.container > svg {
+  display: inline;
+  width: 1.75em;
+  height: 1.75em;
+}

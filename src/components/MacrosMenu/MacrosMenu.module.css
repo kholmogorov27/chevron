@@ -1,0 +1,24 @@
+:global(.splide__track) {
+  height: calc(50vh - var(--menu-offset) - 40px);
+}
+:global(.splide__slide__row) {
+  justify-content: center;
+}
+:global(.splide__slide--col) {
+  width: unset !important;
+  aspect-ratio: 1;
+}
+:global(.splide__slide--col:last-child) {
+  margin-right: 0 !important;
+}
+.container {
+  width: auto;
+  height: calc(50vh - var(--menu-offset) - 40px);
+  margin: 20px 0 20px;
+  overflow: hidden;
+}
+
+.container :global(.card) {
+  width: 100%;
+  height: 100%;
+}

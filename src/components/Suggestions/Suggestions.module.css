@@ -1,0 +1,83 @@
+.container {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: flex-start;
+  font-size: var(--font-size-suggestions);
+}
+.container.default {
+  /* (half of the screen - half of the QueryField - top margin - bottom margin) */
+  height: calc(50vh - 50% - 20px - 20px);
+  margin-top: 20px;
+  gap: 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.suggestion > div {
+  color: var(--suggestions);
+  display: flex;
+  text-align: center;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 7px 20px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+/* sources */
+.suggestion.history-source > div {
+  text-decoration: underline;
+  text-decoration-color: var(--visited);
+  text-underline-offset: 5px;
+  text-decoration-thickness: 0.1em;
+}
+
+.prefix {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: .5ch;
+  background-color: var(--prefix);
+  padding: 0 .5ch;
+  border-radius: 10px;
+  color: var(--secondary);
+}
+
+/* //! */
+.suggestion > div {
+  border: 5px solid transparent;
+}
+.suggestion.selected > div {
+  border: 5px solid var(--primary);
+}
+.suggestion:active > div, :global(.forwarding) .suggestion.selected > div {
+  background: var(--primary);
+  color: var(--secondary);
+}
+
+/* realistic button mode */
+/*
+.suggestion.realistic.selected > div {
+  background: var(--primary);
+  color: var(--secondary);
+}
+.suggestion.realistic:active > div, :global(.forwarding) .suggestion.realistic.selected > div {
+  background: var(--secondary);
+  color: var(--primary);
+}
+.suggestion.realistic:active > div:before {
+  border-radius: 15px;
+  content: '';
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  box-shadow: inset 5px 5px 7px 2px black;
+  pointer-events: none;
+}
+*/

@@ -1,0 +1,50 @@
+.app * {
+  /* cursor: default; */
+  user-select: none;
+}
+.app *::selection {
+  background: var(--accent);
+  color: var(--secondary);
+}
+.app *::-moz-selection {
+  background: var(--accent);
+  color: var(--secondary);
+}
+.app *::-webkit-scrollbar {
+  width: 10px;
+}
+.app *::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 10px;
+}
+.app *::-webkit-scrollbar-thumb:hover {
+  filter: brightness(.5);
+}
+
+body, html, #root {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font), Arial, Helvetica, sans-serif;
+  color: var(--primary);
+  overflow: hidden;
+}
+
+code {
+  display: inline-block;
+  background: var(--joy-palette-background-level3);
+  border: 1px solid var(--joy-palette-background-level1);;
+  padding: 3px;
+  border-radius: 5px;
+}
+
+/* react-fast-marquee fix */
+.marquee {
+  justify-content: space-around;
+}
+
+.JoyTooltip-root {
+  z-index: 10000 !important;
+}

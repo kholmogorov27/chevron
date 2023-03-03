@@ -1,0 +1,8 @@
+:global(.react-colorful__last-control) {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.centered > input {
+  text-align: center;
+}

@@ -1,0 +1,37 @@
+.svg {
+  position: absolute;
+  height: 100vh;
+  overflow: visible;
+  margin-left: calc((var(--thickness) / -2) - 1px);
+  padding-right: calc(var(--thickness) / 2);
+  z-index: 1;
+}
+.clip-container {
+  clip-path: url(#quick-look-clip-path);
+  height: 100vh; 
+  width: 100vw;
+  overflow: visible;
+  position: absolute;
+  z-index: 1;
+  transform: translateX(-1px);
+}
+.label-container {
+  position: absolute;
+  height: 100vh;
+  width: calc(50vh - var(--thickness));
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+.label {
+  padding: 0 5px;
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: var(--textColor);
+  font-size: var(--fontSize);
+  text-transform: uppercase;
+  text-align: center;
+}
