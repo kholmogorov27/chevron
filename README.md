@@ -1,4 +1,4 @@
-# Chevron [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/kholmogorov27/chevron/blob/main/LICENSE) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
+# Chevron [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE.md) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 
 <p align=center>
   <img width="80%" src="https://i.imgur.com/Wa7HcuW.png">
