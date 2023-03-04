@@ -5,7 +5,7 @@ function getCssGradient(options) {
     case 'solid':
       return options.color
     case 'gradient': {
-      let _angle = options.angle ?? ''
+      let _angle = options.angle ?? 45
       if (typeof _angle === 'number') 
         _angle = _angle + 'deg'
       if (_angle)
