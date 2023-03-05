@@ -1,15 +1,8 @@
-:global(.app) {
-  background: var(--background);
-  color: var(--primary);
-  width: 100vw;
-  height: 100vh;
-}
 .container {
   display: flex;
   align-items: center;
   padding: 0;
   margin: 0;
-  overflow: hidden;
   width: 100vw;
   height: 100vh;
 }

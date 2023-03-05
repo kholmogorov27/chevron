@@ -27,6 +27,8 @@ function Settings({ onClose }) {
       style={{
         position: 'absolute',
         height: '100vh',
+        display: 'flex',
+        alignItems: 'center',
         top: 0,
         right: 0,
         zIndex: 99
@@ -35,8 +37,8 @@ function Settings({ onClose }) {
         <Card
           sx={theme => ({
             p: 0,
-            m: 2,
-            height: '-webkit-fill-available',
+            m: '0 1em',
+            height: 'calc(100vh - 1em * 2)',
             overflow: 'hidden',
             minWidth: '300px',
             borderRadius: '15px',

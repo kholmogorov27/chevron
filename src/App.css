@@ -1,3 +1,10 @@
+.app {
+  background: var(--background);
+  color: var(--primary);
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
 .app * {
   /* cursor: default; */
   user-select: none;
@@ -24,12 +31,13 @@
 body, html, #root {
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 body {
+  position: relative;
   font-family: var(--font), Arial, Helvetica, sans-serif;
   color: var(--primary);
-  overflow: hidden;
 }
 
 code {
