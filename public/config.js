@@ -1,5 +1,5 @@
 const CONFIG = {
-  macros: [    
+  macros: [
     {
       category: 'Programming',
       name: 'GitHub',
@@ -27,34 +27,6 @@ const CONFIG = {
       },
       textColor: '#e8e8e8',
       pinned: true
-    },
-    {
-      category: 'Social',
-      name: 'VK',
-      triggers: [
-        'v',
-        'vk',
-        'vkontakte',
-      ],
-      key: 'KeyV',
-      url: 'https://vk.com',
-      normalisedURL: 'vk.com',
-      commands: {
-        go: {
-          template: '{@}/{$}',
-          description: 'go to'
-        },
-        search: {
-          template: '{@}/search?c%5Bq%5D={$}&c%5Bsection%5D=auto'
-        }
-      },
-      bgColor: {
-        type: 'gradient',
-        gradientType: 'linear',
-        colors: ['#0077ff', '#0033ff'],
-        stops: [0, 100]
-      },
-      textColor: '#e8e8e8'
     },
     {
       category: 'Music',
@@ -361,7 +333,209 @@ const CONFIG = {
       },
       textColor: '#e8e8e8',
       pinned: true
-    }
+    },
+    {
+      category: 'Programming',
+      name: 'ChatGPT',
+      icon: 'chatGPT',
+      url: 'https://chat.openai.com/chat',
+      normalisedURL: 'openai.com',
+      triggers: [
+        'c',
+        'chat',
+        'gpt',
+        'cgpt',
+        'chatgpt'
+      ],
+      key: 'KeyC',
+      bgColor: {
+        type: 'solid',
+        color: '#70a597',
+      },
+      textColor: '#f7f7f7',
+      pinned: true
+    },
+    {
+      category: 'Social',
+      name: 'Discord',
+      icon: 'discord',
+      key: 'keyD',
+      triggers: [
+        'd',
+        'dis',
+        'discord'
+      ],
+      url: 'https://discord.com/app',
+      normalisedURL: 'discord.com',
+      bgColor: {
+        type: 'solid',
+        color: '#5460e6'
+      },
+      textColor: '#fff',
+      pinned: true
+    },
+    {
+      category: 'Education',
+      name: 'Wikipedia',
+      icon: 'wikipedia',
+      triggers: [
+        'wi',
+        'wiki',
+        'wikipedia'
+      ],
+      url: 'https://www.wikipedia.org',
+      normalisedURL: 'wikipedia.org',
+      commands: {
+        search: {
+          template: '{@}/?search={$}'
+        },
+        go: {
+          template: '{@}/wiki/{$}'
+        }
+      },
+      bgColor: {
+        type: 'gradient',
+        gradientType: 'linear',
+        colors: ['#e1e1e3', '#8a8a8c'],
+        stops: [60, 100]
+      },
+      textColor: '#000',
+      pinned: true
+    },
+    {
+      category: 'Work',
+      name: 'Linkedin',
+      icon: 'linkedin',
+      key: 'keyL',
+      triggers: [
+        'l',
+        'lk',
+        'li',
+        'linked',
+        'linkedin'
+      ],
+      url: 'https://linkedin.com',
+      normalisedURL: 'linkedin.com',
+      commands: {
+        search: {
+          template: '{@}/search/results/all/?keywords={$}'
+        }
+      },
+      bgColor: {
+        type: 'solid',
+        color: '#0077b7'
+      },
+      textColor: '#fff',
+      pinned: true
+    },
+    {
+      category: 'Work',
+      name: 'Slack',
+      icon: 'slack',
+      triggers: [
+        'sl',
+        'slack'
+      ],
+      url: 'https://app.slack.com',
+      normalisedURL: 'slack.com',
+      bgColor: {
+        type: 'gradient',
+        gradientType: 'linear',
+        angle: -200,
+        colors: ['#d6abb9', '#e6d7b8', '#bce2eb', '#8db0a4']
+      },
+      textColor: '#00bd6d',
+    },
+    {
+      category: 'Social',
+      name: 'VK',
+      triggers: [
+        'v',
+        'vk',
+        'vkontakte',
+      ],
+      url: 'https://vk.com',
+      normalisedURL: 'vk.com',
+      commands: {
+        go: {
+          template: '{@}/{$}',
+          description: 'go to'
+        },
+        search: {
+          template: '{@}/search?c%5Bq%5D={$}&c%5Bsection%5D=auto'
+        }
+      },
+      bgColor: {
+        type: 'gradient',
+        gradientType: 'linear',
+        colors: ['#0077ff', '#0033ff']
+      },
+      textColor: '#e8e8e8'
+    },
+    {
+      category: 'Search',
+      name: 'DuckDuckGo',
+      triggers: [
+        'dd',
+        'ddg',
+        'duck',
+        'duckduck',
+        'duckduckgo'
+      ],
+      url: 'https://duckduckgo.com',
+      normalisedURL: 'duckduckgo.com',
+      commands: {
+        search: {
+          template: '{@}/?q={$}'
+        }
+      },
+      bgColor: {
+        type: 'solid',
+        color: '#e37151'
+      },
+      textColor: '#e8e8e8'
+    },
+    {
+      category: 'Search',
+      name: 'Bing',
+      triggers: [
+        'b',
+        'bing',
+      ],
+      url: 'https://www.bing.com',
+      normalisedURL: 'bing.com',
+      commands: {
+        search: {
+          template: '{@}/search?q={$}'
+        }
+      },
+      bgColor: {
+        type: 'gradient',
+        gradientType: 'linear',
+        colors: ['#3ab0f1', '#2351dd', '#40d1da']
+      },
+      textColor: '#e8e8e8'
+    },
+    {
+      category: 'Search',
+      name: 'Yandex',
+      triggers: [
+        'ya',
+        'yandex'
+      ],
+      url: 'https://ya.ru',
+      normalisedURL: 'ya.ru',
+      commands: {
+        search: {
+          template: '{@}/search/?text={$}'
+        }
+      },
+      bgColor: {
+        type: 'solid',
+        color: '#fc3f1d'
+      },
+      textColor: '#000'
+    },
   ],
   commands: [
     {
