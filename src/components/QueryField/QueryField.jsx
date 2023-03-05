@@ -1,4 +1,4 @@
-import { useContext, useCallback, useRef, useEffect, memo } from 'react'
+import { useContext, useCallback, useEffect, memo, forwardRef } from 'react'
 import useSuggestions from '../../hooks/useSuggestions'
 import useParseQuery from '../../hooks/useParseQuery'
 import useRedirect from '../../hooks/useRedirect'
@@ -11,7 +11,7 @@ import History from '../../classes/localStorage/history'
 import gC from '../../functions/generationUtils/getClasses'
 import classes from './QueryField.module.css'
 
-function QueryField () {
+const QueryField = forwardRef((props, inputRef) => {
   // settings
   const settings = useContext(SettingsContext)
 
@@ -19,8 +19,6 @@ function QueryField () {
   const inputFontSize = settings.query.field.fontSize
   const suggestionsFontSize = settings.query.suggestions.fontSize
   const enableCarret = settings.query.field.caret
-  
-  const inputRef = useRef(null)
 
   /* store */
   const mode = useStateSelector(store => store.mode)
@@ -97,7 +95,7 @@ function QueryField () {
   useEffect(() => {
     inputRef.current.blur()
     inputRef.current.focus()
-  }, [parsedQuery.value])
+  }, [inputRef])
   
   // css variables
   const variables = {
@@ -130,7 +128,8 @@ function QueryField () {
             setSelected={suggestion => updateStore({ selectedSuggestion: suggestion })}/> }
     </div>
   )
-}
+})
+QueryField.displayName = 'QueryField'
 
 function getSuggestion(suggestions, selectedSuggestion, option) {
   // current index

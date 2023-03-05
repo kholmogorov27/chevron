@@ -26,6 +26,8 @@ function App() {
   const resetStore = useReset()
   // ---
 
+  const inputRef = useRef(null)
+
   const [showSettings, setShowSettings] = useState(false)
 
   /* handlers */
@@ -105,12 +107,13 @@ function App() {
             : 
             <motion.div 
               key='container'
+              onClick={() => inputRef.current && inputRef.current.focus()}
               className={styles['container']} 
               initial={{ opacity: 0 }} 
               animate={{ opacity: 1 }} 
               exit={{ opacity: 0 }}>
                 <ActiveElements/>
-                <QueryField/>
+                <QueryField ref={inputRef}/>
                 <LayoutButton
                   id='settings'
                   style={{ right: 0, top: 0 }}
