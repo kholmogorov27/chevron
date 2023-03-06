@@ -319,6 +319,7 @@ You can edit **_Macros_** and **_Commands_** only in the `/config.js` file yet.
 - [ ] Macros Menu categories
 - [ ] Localisation
 - [x] LocalStorage reset buttons
+- [ ] Refactor seacrh engines system
 
 ## Technologies
 
