@@ -301,10 +301,10 @@ You can edit **_Macros_** and **_Commands_** only in the `/config.js` file yet.
   }
   ```
 
-  Because of the limitations of the CORS policy, macros icons must be stored in `/icons.js` in the `ICONS` object. You can put there any valid HTML SVG as a string
+Because of the limitations of the CORS policy, macros icons must be stored in `/icons.js` in the `ICONS` object. You can put there any valid HTML SVG as a string
 
-  > **Warning**
-  > be aware of quotes
+> **Warning**
+> be aware of quotes
 
 ## TODO
 
