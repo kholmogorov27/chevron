@@ -104,14 +104,29 @@ export class List extends SettingType {
   }
 
   display(value, path, current) {
-    const list = Array.isArray(this.list)
-      ? this.list
-      : Object.keys(SettingType.getOtherSetting(path, this.list, current))
+    let list
+    switch (typeof this.list) {
+      case 'object':
+        list = this.list
+        break
+      case 'string':
+        list = Object.keys(SettingType.getOtherSetting(path, this.list, current))
+        break
+      default: throw new Error('unknown `list` type')
+    }
 
-    const options = list.map(option => (
-      <Option key={option} value={option}>
-        {option}
-      </Option>))
+    let options
+    if (Array.isArray(list))
+      options = list.map(option => (
+        <Option key={option} value={option}>
+          {option}
+        </Option>))
+    else
+      options = Object.entries(list).map(([value, description]) => (
+        <Option key={value} value={value}>
+          {description}
+        </Option>))
+
 
     return (
       <Select 
