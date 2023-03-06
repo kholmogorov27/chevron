@@ -7,7 +7,9 @@ for (const key in config.engines)
 
 const template = {
   general: {
-    mode: new types.List('chevron', ['chevron', 'legacy']),
+    /* TODO
+      mode: new types.List('chevron', ['chevron', 'legacy']),
+    */
     // from confing.engines (keys)
     searchEngine: new types.List('google', searchEngines),
     searchHistory: new types.Switch(true),
