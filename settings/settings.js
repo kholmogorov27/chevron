@@ -1,11 +1,15 @@
 import * as types from './settingTypes'
 import config from '../public/config'
 
+const searchEngines = {}
+for (const key in config.engines)
+  searchEngines[key] = config.engines[key].name
+
 const template = {
   general: {
     mode: new types.List('chevron', ['chevron', 'legacy']),
     // from confing.engines (keys)
-    searchEngine: new types.List('google', Object.keys(config.engines)),
+    searchEngine: new types.List('google', searchEngines),
     searchHistory: new types.Switch(true),
     quickRedirect: new types.Switch(false),
     animationSpeed: new types.Range(
