@@ -9,7 +9,7 @@
 </p>
 
 <p align=center>
-  distributed in <i>static</i>, <i>hosted</i> and <i>github pages</i> options
+  available in <i>static</i>, <i>hosted</i> and <i>github pages</i> options
 </p>
 
 <p align=center>
