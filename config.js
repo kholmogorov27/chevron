@@ -617,12 +617,12 @@ const CONFIG = {
   ],
   engines: {
     google: {
-      name: 'google',
+      name: 'Google',
       bgColor: {
         type: 'solid',
         color: '#aaa'
       },
-      textColor: 'white',
+      textColor: '#fff',
       types: {
         // @ - origin query (what user typed); $ - final query (what is in the query field (selected))
         query: {
@@ -633,6 +633,83 @@ const CONFIG = {
         },
         currency: {
           template: 'https://www.google.com/search?q={@}'
+        }
+      }
+    },
+    duckDuckGo: {
+      name: 'DuckDuckGo',
+      bgColor: {
+        type: 'solid',
+        color: '#e37151'
+      },
+      textColor: '#e8e8e8',
+      types: {
+        query: {
+          template: 'https://duckduckgo.com/?q={$}'
+        },
+        calculator: {
+          template: 'https://duckduckgo.com/?q={@}'
+        },
+        currency: {
+          template: 'https://duckduckgo.com/?q={@}'
+        }
+      }
+    },
+    yandex: {
+      name: 'Yandex',
+      bgColor: {
+        type: 'solid',
+        color: '#fc3f1d'
+      },
+      textColor: '#000',
+      types: {
+        query: {
+          template: 'https://ya.ru/search/?text={$}'
+        },
+        calculator: {
+          template: 'https://ya.ru/search/?text={@}'
+        },
+        currency: {
+          template: 'https://ya.ru/search/?text={@}'
+        }
+      }
+    },
+    qwant: {
+      name: 'Qwant',
+      bgColor: {
+        type: 'solid',
+        color: '#5992f7'
+      },
+      textColor: '#000',
+      types: {
+        query: {
+          template: 'https://www.qwant.com/?q={$}'
+        },
+        calculator: {
+          template: 'https://www.qwant.com/?q={@}'
+        },
+        currency: {
+          template: 'https://www.qwant.com/?q={@}'
+        }
+      }
+    },
+    bing: {
+      name: 'Bing',
+      bgColor: {
+        type: 'gradient',
+        gradientType: 'linear',
+        colors: ['#3ab0f1', '#2351dd', '#40d1da']
+      },
+      textColor: '#e8e8e8',
+      types: {
+        query: {
+          template: 'https://www.bing.com/search?q={$}'
+        },
+        calculator: {
+          template: 'https://www.bing.com/search?q={@}'
+        },
+        currency: {
+          template: 'https://www.bing.com/search?q={@}'
         }
       }
     }
