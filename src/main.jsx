@@ -8,7 +8,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <SettingsProvider>
       <StoreProvider>
-        <App key={Date.now()}/>
+        <App/>
       </StoreProvider>
     </SettingsProvider>
   </React.StrictMode>

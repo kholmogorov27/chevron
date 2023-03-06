@@ -8,11 +8,14 @@ app modes:
   - searching
 */
 
-const initialStore = {
-  mode: 'default',
-  query: '',
-  selectedSuggestion: null,
-  redirected: false
+class InitialStore {
+  constructor() {
+    this.mode = 'default',
+    this.query = '',
+    this.selectedSuggestion = null,
+    this.redirected = false,
+    this.timestamp = Date.now()
+  }
 }
 
 const {
@@ -23,7 +26,7 @@ const {
 
 function StoreProvider({ children }) {
   return (
-    <Provider initialState={initialStore}>
+    <Provider initialState={new InitialStore}>
       {children}
     </Provider>
   )
@@ -49,7 +52,7 @@ function useUpdate() {
 
 function useReset() {
   const store = useStore()
-  return () => store.update({ ...initialStore })
+  return () => store.update({ ...(new InitialStore) })
 }
 
 export { StoreProvider, useStateSelector, useUpdate, useReset }

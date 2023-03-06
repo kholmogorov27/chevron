@@ -22,6 +22,8 @@ function App() {
 
   /* store */
   const mode = useStateSelector(state => state.mode)
+  const redirected = useStateSelector(state => state.redirected)
+  const timestamp = useStateSelector(state => state.timestamp)
   const updateStore = useUpdate()
   const resetStore = useReset()
   // ---
@@ -96,6 +98,18 @@ function App() {
   }, [colorScheme]) 
   // ---
 
+  /* firefox history back caching fix [#1 issue] */
+  const handleVisibilityChange = useRef(null)
+  handleVisibilityChange.current = () => {
+    // reset store if user went back from a redirected page
+    if (document.visibilityState === 'visible' && redirected)
+      resetStore()
+  }
+  useEffect(() => {
+    document.addEventListener('visibilitychange', () => handleVisibilityChange.current())
+  }, [])
+  // ---
+
   return (
     <div className='app'>
       <AnimatePresence>
@@ -106,12 +120,12 @@ function App() {
               resetStore()}}/>
             : 
             <motion.div 
-              key='container'
+              key={timestamp}
               onClick={() => inputRef.current && inputRef.current.focus()}
               className={styles['container']} 
               initial={{ opacity: 0 }} 
               animate={{ opacity: 1 }} 
-              exit={{ opacity: 0 }}>
+              exit={redirected || { opacity: 0 }}>
                 <ActiveElements/>
                 <QueryField ref={inputRef}/>
                 <LayoutButton
