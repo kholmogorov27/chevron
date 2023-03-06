@@ -617,7 +617,7 @@ const CONFIG = {
   ],
   engines: {
     google: {
-      name: 'google',
+      name: 'Google',
       bgColor: {
         type: 'solid',
         color: '#aaa'
