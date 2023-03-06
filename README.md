@@ -5,12 +5,18 @@
 </p>
 
 <p align=center>
-  Chevron is a <i>light</i>, <i>minimalistic</i> and highly <i>customisable</i> startpage
+  Chevron is an <i>animated</i>, <i>minimalistic</i> and highly <i>customisable</i> startpage
 </p>
+
+<p align=center>
+  distributed in <i>static</i>, <i>hosted</i> and <i>github pages</i> options
+</p>
+
 <p align=center>
   <font size=4>
     <a href="https://kholmogorov27.github.io/chevron/">Live Demo</a> | 
-    <a href="https://github.com/kholmogorov27/chevron/releases/latest">Download</a>
+    <a href="https://github.com/kholmogorov27/chevron/releases/latest">Download</a> |
+    <a href="#installation">Installation</a>
   </font>
 </p>
 
@@ -20,10 +26,10 @@
 - [Screenshots](#screenshots)
 - [Installation](#installation)
   <font size=2>
-  - [Local file _<sup>(recommended)</sup>_](#local-file-recommended)
+  - [Static _<sup>(recommended)</sup>_](#static-recommended)
     </font>
     <font size=2>
-  - [Local server](#local-server)
+  - [Hosted](#hosted)
     </font>
     <font size=2>
   - [GitHub Pages](#github-pages)
@@ -41,7 +47,7 @@
 
 ## Features
 
-autosuggestions, history, macros and commands, macros menu, hotkeys, currency converter, calculator, animated yet minimalist design
+autosuggestions, history, macros and commands, macros menu, hotkeys, currency converter, calculator, animated and minimalist design
 
 ## Screenshots
 
@@ -87,19 +93,19 @@ You can set Chevron as the homepage (in the browser settings) or the new tab (yo
 
 > **Warning**
 > If you want the app itself to be focused when opening a new tab and not the address bar,  
-> I recommend [this](https://chrome.google.com/webstore/detail/new-tab-redirect/icpgjfneehieebagbmdbhnlpiopdcmna) extension in tandem with the [local server installation method](#local-server) or the [github pages installation method](#github-pages) for all chromium based browsers (_Google Chrome, Microsoft Edge, Brave, Opera, Vivaldi etc_)
+> I recommend [this](https://chrome.google.com/webstore/detail/new-tab-redirect/icpgjfneehieebagbmdbhnlpiopdcmna) extension in tandem with the [hosted](#hosted) or [github pages](#github-pages) installation method for all chromium based browsers (_Google Chrome, Microsoft Edge, Brave, Opera, Vivaldi etc_)
 
 There are a few ways to install Chevron:
 
-### Local file _<sup>(recommended)</sup>_
+### Static _<sup>(recommended)</sup>_
 
 > This method is **recommended** because it doesn't depend on your internet connection or any remote servers, and the UI will be loaded instantly.  
-> But some browser and extensions might have [the focus problem](#focus-problem)
+> Some browser and extensions might have [the focus problem](#focus-problem)
 
 1. Download [the latest release](https://github.com/kholmogorov27/chevron/releases/latest)
 1. Unzip the archive in any convenient place
 
-### Local server
+### Hosted
 
 > This method is useful when you want to fix [the focus problem](#focus-problem) or for any other reason the _Local file_ method doesn't work for you
 
