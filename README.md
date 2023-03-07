@@ -173,8 +173,7 @@ After you register the server, you will be able to access Chevron on **_localhos
 
 ## Build
 
-> **Note** 
-> [Node.js and npm](https://nodejs.org/en/download/) are required
+> **Note** > [Node.js and npm](https://nodejs.org/en/download/) are required
 
 1. Install dependencies
 
@@ -209,22 +208,35 @@ By default, you will be redirected to the search page of the search engine, howe
   To use a command, you need to put the command after a trigger of a macro (the command must be defined in the global and macro commands lists). Everything going after a command is _<span style="color: steelblue">argument</span>_.
   <pre><span style="color: grey">></span> <span style="color: orange">so</span><span style="color: limegreen">?</span><span style="color: steelblue">how to parse html with regex</span></pre>
 
-  > You can force using seacrh engine by pressing <kbd>Ctrl</kbd>
+  To ignore macros and force using search engine press <kbd><font size=3>Ctrl</font></kbd>
 
 - **Macros menu**:  
-  Any macro can be pinned to macros menu.  
-  There are 3 ways to interact with macros menu:
+  Macros can be pinned to macros menu.
 
-  - the _macros menu toggle button_ in the right bottom corner
+  **_Controls_**:
 
-    > **Note**
-    > The macros menu toggle button will appear only on hover after you click it at least once
+  - **open/close**:
 
-  - clicking <kbd><font size=3>RMB</font></kbd>
-  - pressing <kbd><font size=3>Shift</font></kbd>
+    - the _macros menu toggle button_ in the right bottom corner
 
-  You can use hotkeys to quickly call a macro: <kbd><font size=3>Shift</font></kbd> + \<_key_\>  
-  (`key` property must be defined for the macro)
+      > **Note**
+      > The macros menu toggle button will appear only on hover after you click it at least once
+
+    - <kbd><font size=3>RMB</font></kbd>
+    - <kbd><font size=3>Shift</font></kbd>
+
+  - **navigation**:
+
+    - <kbd><font size=3>←</font></kbd> <kbd><font size=3>→</font></kbd>
+    - mouse wheel
+    - drag
+
+- **Hotkeys**:  
+  You can use hotkeys to quickly call macros which have `key` property
+
+  <kbd><font size=3>Shift</font></kbd> + \<**key**\>
+
+  > macro must be `pinned`
 
 ## Configuration
 
