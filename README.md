@@ -173,7 +173,8 @@ After you register the server, you will be able to access Chevron on **_localhos
 
 ## Build
 
-> **Note** > [Node.js and npm](https://nodejs.org/en/download/) are required
+> **Note** 
+> [Node.js and npm](https://nodejs.org/en/download/) are required
 
 1. Install dependencies
 
