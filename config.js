@@ -278,7 +278,7 @@ const CONFIG = {
       category: 'Social',
       name: 'Discord',
       icon: 'discord',
-      key: 'keyD',
+      key: 'KeyD',
       triggers: [
         'd',
         'dis',
@@ -375,7 +375,7 @@ const CONFIG = {
       category: 'Work',
       name: 'Linkedin',
       icon: 'linkedin',
-      key: 'keyL',
+      key: 'KeyL',
       triggers: [
         'l',
         'lk',
