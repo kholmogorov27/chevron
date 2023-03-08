@@ -333,6 +333,7 @@ Because of the limitations of the CORS policy, macros icons must be stored in `/
 - [ ] Localisation
 - [x] LocalStorage reset buttons
 - [ ] Refactor seacrh engines system
+- [ ] Time settings 
 
 ## Technologies
 
