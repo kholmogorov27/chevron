@@ -55,7 +55,7 @@ autosuggestions, history, macros and commands, macros menu, hotkeys, currency co
   <tbody>
     <tr>
       <td colspan=2 align=center>
-        <img width="60%" src="https://i.imgur.com/93Jb73d.png"/>
+        <img width="60%" src="https://media0.giphy.com/media/KXsFzsWx0wuY9soUAe/giphy.gif"/>
       </td>
     </tr>
     <tr>
