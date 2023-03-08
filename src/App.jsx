@@ -9,8 +9,11 @@ import LayoutButton from './components/LayoutButton/LayoutButton'
 import { BsGearFill, BsChevronRight } from 'react-icons/bs'
 import { RiMenu5Fill } from 'react-icons/ri'
 import { allowedModes } from './rules'
-import styles from './App.module.css'
+import { isMobile } from 'react-device-detect'
+import classes from './App.module.css'
 import './App.css'
+
+const ignoreMobile = localStorage.getItem('ignoreMobile')
 
 function App() {
   // settings
@@ -112,42 +115,57 @@ function App() {
 
   return (
     <div className='app'>
-      <AnimatePresence>
-        {
-          showSettings
-            ? <Settings key='settings' onClose={() => {
-              setShowSettings(false) 
-              resetStore()}}/>
-            : 
-            <motion.div 
-              key={timestamp}
-              onClick={() => inputRef.current && inputRef.current.focus()}
-              className={styles['container']} 
-              initial={{ opacity: 0 }} 
-              animate={{ opacity: 1 }} 
-              exit={redirected || { opacity: 0 }}>
-                <ActiveElements/>
-                <QueryField ref={inputRef}/>
-                <LayoutButton
-                  id='settings'
-                  style={{ right: 0, top: 0 }}
-                  onClick={() => setShowSettings(state => !state)}>
-                    <BsGearFill/>
-                </LayoutButton>
-                <LayoutButton
-                  id='macros-menu'
-                  style={{ right: 0, bottom: 0 }}
-                  onClick={switchMacrosMenu}>
-                    {
-                      mode === 'default' && <RiMenu5Fill/>
-                    }
-                    {
-                      mode === 'opened' && <BsChevronRight/>
-                    }
-                </LayoutButton>
-            </motion.div>
-        }
-      </AnimatePresence>
+      {
+        !isMobile || ignoreMobile
+          ? <AnimatePresence>
+              {
+                showSettings
+                  ? <Settings key='settings' onClose={() => {
+                    setShowSettings(false) 
+                    resetStore()}}/>
+                  : 
+                  <motion.div 
+                    key={timestamp}
+                    onClick={() => inputRef.current && inputRef.current.focus()}
+                    className={classes['container']} 
+                    initial={{ opacity: 0 }} 
+                    animate={{ opacity: 1 }} 
+                    exit={redirected || { opacity: 0 }}>
+                      <ActiveElements/>
+                      <QueryField ref={inputRef}/>
+                      <LayoutButton
+                        id='settings'
+                        style={{ right: 0, top: 0 }}
+                        onClick={() => setShowSettings(state => !state)}>
+                          <BsGearFill/>
+                      </LayoutButton>
+                      <LayoutButton
+                        id='macros-menu'
+                        style={{ right: 0, bottom: 0 }}
+                        onClick={switchMacrosMenu}>
+                          {
+                            mode === 'default' && <RiMenu5Fill/>
+                          }
+                          {
+                            mode === 'opened' && <BsChevronRight/>
+                          }
+                      </LayoutButton>
+                  </motion.div>
+              }
+            </AnimatePresence>
+          : <div className={classes['mobile-warning']}>
+              <div>
+                Mobile devices are not supported :( <br />
+                <span className={classes['ignore-mobile-button']}
+                onClick={() => {
+                  localStorage.setItem('ignoreMobile', true)
+                  location.reload()
+                }}>
+                  ignore this warning
+                </span>
+              </div>
+            </div>
+      }
     </div>
   )
 }

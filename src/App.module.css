@@ -6,3 +6,19 @@
   width: 100vw;
   height: 100vh;
 }
+
+.mobile-warning {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+}
+.mobile-warning > div {
+  text-align: center;
+}
+.ignore-mobile-button {
+  text-decoration: underline;
+  cursor: pointer;
+}
