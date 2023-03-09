@@ -22,3 +22,18 @@
   text-decoration: underline;
   cursor: pointer;
 }
+
+.cancel-button {
+  position: absolute;
+  left: 50%;
+  bottom: 1em;
+  transform: translateX(-50%);
+  z-index: 10000;
+  cursor: pointer;
+  font-size: x-large;
+  padding: .5em 1em;
+  border-radius: 1em;
+  border: 5px solid var(--primary);
+  background: var(--secondary);
+  color: var(--primary);
+}

@@ -34,6 +34,7 @@ function App() {
   const inputRef = useRef(null)
 
   const [showSettings, setShowSettings] = useState(false)
+  const [showReset, setShowReset] = useState(false)
 
   /* handlers */
   const onContextMenuRef = useRef(null)
@@ -106,7 +107,7 @@ function App() {
   handleVisibilityChange.current = () => {
     // reset store if user went back from a redirected page
     if (document.visibilityState === 'visible' && redirected)
-      resetStore()
+      setShowReset(true)
   }
   useEffect(() => {
     document.addEventListener('visibilitychange', () => handleVisibilityChange.current())
@@ -150,6 +151,9 @@ function App() {
                             mode === 'opened' && <BsChevronRight/>
                           }
                       </LayoutButton>
+                      {
+                        showReset && <div className={classes['cancel-button']} onClick={() => location.reload()}>Cancel</div>
+                      }
                   </motion.div>
               }
             </AnimatePresence>
