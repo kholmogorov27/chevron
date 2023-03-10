@@ -142,7 +142,6 @@ function Card({ active=false, visibility=true, icon, bgColor, textColor, hotKey,
               })      
             })
             setTimeout(() => {
-              console.log('tr')
               window.cardRedirectAnimationEnd?.()
             }, 1000 * Math.max(PLATE_TRANSITION_DURATION, LOGO_TRANSITION_DELAY + LOGO_TRANSITION_DURATION))
           }
