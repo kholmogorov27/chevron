@@ -192,7 +192,7 @@ export class Range extends SettingType {
           }
         }}
         endDecorator={this.format?.replaceAll('{@}', '')}
-        onChange={e => this.onChange(e.target.value)}/>
+        onChange={e => this.onChange(Number(e.target.value))}/>
     )
   }
 }
