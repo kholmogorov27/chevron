@@ -51,7 +51,7 @@ function Card({ active=false, visibility=true, icon, bgColor, textColor, hotKey,
         style={styles?.logo?.instant}
         animate={styles?.logo?.animate}
         transition={styles?.logo?.transition}>
-          {getIcon(icon, textColor)}
+          { getIcon(icon, textColor) }
       </motion.div>
       <motion.div
         ref={plateRef} 
@@ -141,7 +141,10 @@ function Card({ active=false, visibility=true, icon, bgColor, textColor, hotKey,
                 }
               })      
             })
-            window.cardRedirectAnimationEnd?.()
+            setTimeout(() => {
+              console.log('tr')
+              window.cardRedirectAnimationEnd?.()
+            }, 1000 * Math.max(PLATE_TRANSITION_DURATION, LOGO_TRANSITION_DELAY + LOGO_TRANSITION_DURATION))
           }
         }
       }
