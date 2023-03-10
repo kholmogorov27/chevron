@@ -112,7 +112,15 @@ const template = {
     ),
     pagination: new types.Switch(false),
     arrows: new types.Switch(true),
-    drag: new types.Switch(true)
+    drag: new types.Switch(true),
+    time: {
+      fontSize: new types.Range(
+        1,
+        { min: 0.1, max: 10, step: 0.1 }, 
+        { format: '{@}em' }
+      ),
+      format: new types.Input('h:MM')
+    }
   }
 }
 

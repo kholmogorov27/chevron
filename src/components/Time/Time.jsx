@@ -1,8 +1,15 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { SettingsContext } from '../../contexts/Settings'
 import dateFormat from 'dateformat'
 import classes from './Time.module.css'
 
 function Time() {
+  /* settings */
+  const settings = useContext(SettingsContext)
+
+  const fontSize = settings.menu.time.fontSize
+  const format = settings.menu.time.format
+
   const [time, setTime] = useState(new Date())
 
   useEffect(() => {
@@ -15,9 +22,13 @@ function Time() {
     return () => clearTimeout(window[timerGlobalRef])
   }, [])
 
+  const variables = {
+    '--font-size': fontSize + 'em'
+  }
+
   return (
-    <div className={classes['time']}>
-      {dateFormat(time, 'h:MM')}
+    <div className={classes['time']} style={variables}>
+      {dateFormat(time, format)}
     </div>
   )
 }
