@@ -87,7 +87,7 @@ body[data-color-scheme=light] .hint {
   position: absolute;
   width: 60%;
   aspect-ratio: 1;
-  z-index: 10;
+  z-index: 10000;
   border-radius: 50%;
   background: var(--secondary);
   background-repeat: no-repeat;
@@ -130,7 +130,7 @@ body[data-color-scheme=light] .plate.detached::before {
 .logo {
   width: 40%;
   margin: 10%;
-  z-index: 11;
+  z-index: 10001;
 }
 
 .logo svg {
