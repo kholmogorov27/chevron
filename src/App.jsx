@@ -127,7 +127,6 @@ function App() {
                   : 
                   <motion.div 
                     key={timestamp}
-                    onClick={() => inputRef.current && inputRef.current.focus()}
                     className={classes['container']} 
                     initial={{ opacity: 0 }} 
                     animate={{ opacity: 1 }} 

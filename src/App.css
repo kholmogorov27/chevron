@@ -19,6 +19,7 @@
 }
 .app *::-webkit-scrollbar {
   width: 10px;
+  height: 10px;
 }
 .app *::-webkit-scrollbar-thumb {
   background: var(--primary);

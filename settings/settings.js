@@ -94,6 +94,14 @@ const template = {
         5,
         { min: 0, max: 50 }
       )
+    },
+    AI: {
+      enabled: new types.Switch(true),
+      apiKey: new types.Input('', 'Enter your openai api key'),
+      temperature: new types.Range(
+        0.4,
+        { min: 0, max: 1, step: 0.05 }
+      )
     }
   },
   menu: {

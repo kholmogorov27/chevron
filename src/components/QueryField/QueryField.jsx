@@ -1,15 +1,19 @@
-import { useContext, useCallback, useEffect, memo, forwardRef } from 'react'
+import { useContext, useCallback, useEffect, memo, forwardRef, useRef } from 'react'
 import useSuggestions from '../../hooks/useSuggestions'
 import useParseQuery from '../../hooks/useParseQuery'
 import useRedirect from '../../hooks/useRedirect'
 import { SettingsContext } from '../../contexts/Settings'
 import { useStateSelector, useUpdate } from '../../contexts/Store'
 import Suggestions from '../Suggestions/Suggestions'
+import AIcompletion from '../AIcompletion/AIcompletion'
 import { allowedModes, activeKeys } from '../../rules'
 import googleAutocomplete from '../../autocomplete/googleAutocomplete'
 import History from '../../classes/localStorage/history'
 import gC from '../../functions/generationUtils/getClasses'
 import classes from './QueryField.module.css'
+import { useState } from 'react'
+
+const DOUBLE_PRESS_THRESHOLD = 300
 
 const QueryField = forwardRef((props, inputRef) => {
   // settings
@@ -36,6 +40,9 @@ const QueryField = forwardRef((props, inputRef) => {
     selectedSuggestion ? selectedSuggestion.type : undefined, 
     query)
 
+  // query for AI
+  const [aiQuery, setAiQuery] = useState('')
+
   const redirect = useRedirect()
     
   const handleRedirect = useCallback(() => {
@@ -48,13 +55,19 @@ const QueryField = forwardRef((props, inputRef) => {
   }, [parsedQuery, searchHistory, redirect])
 
   const handleQueryChange = useCallback(value => {
-    if (allowedModes.get('QueryField').has(mode))
-      updateStore({ 
-        //!
-        query: value.replace(/\s{2,}/g, ' '), 
-        selectedSuggestion: null
-      })
-  }, [mode, updateStore])
+    if (allowedModes.get('QueryField').has(mode)) {
+      //!
+      const newValue = value.replace(/\s{2,}/g, ' ')
+
+      if (newValue !== query) {
+        setAiQuery('')
+        updateStore({ 
+          query: newValue, 
+          selectedSuggestion: null
+        })
+      }
+    }
+  }, [mode, query, updateStore])
 
   const onKeyDown = useCallback((e) => {
     switch (e.key) {
@@ -69,6 +82,7 @@ const QueryField = forwardRef((props, inputRef) => {
       case 'Escape':
         // clearing the query
         updateStore({ query: '' })
+        setAiQuery('')
         break
       default:
         if (allowedModes.get('Suggestions').has(mode) && activeKeys.get('Suggestions').has(e.key)) {
@@ -84,12 +98,26 @@ const QueryField = forwardRef((props, inputRef) => {
         }
     }
   }, [mode, updateStore, handleRedirect, suggestions, selectedSuggestion])
-
-  // add event listeners
+  // onKeyDown listener
   useEffect(() => {
     window.addEventListener('keydown', onKeyDown)
     return () => window.removeEventListener('keydown', onKeyDown)    
   }, [onKeyDown])
+
+  const spacebarLastPressRef = useRef(-1)
+  const onKeyPress = useCallback((e) => {
+    if (e.code === 'Space') {
+      if (Date.now() - spacebarLastPressRef.current < DOUBLE_PRESS_THRESHOLD)
+        setAiQuery(query)
+
+      spacebarLastPressRef.current = Date.now()
+    }
+  }, [query])
+  // onKeyPress listener
+  useEffect(() => {
+    window.addEventListener('keypress', onKeyPress)
+    return () => window.removeEventListener('keypress', onKeyPress)    
+  }, [onKeyPress])
 
   // re-focusing the input inputField to focus on the caret
   useEffect(() => {
@@ -116,8 +144,9 @@ const QueryField = forwardRef((props, inputRef) => {
 
   return (
     <div
-      className={`${classes['container']}`} 
-      style={ variables }>
+      className={classes['container']} 
+      style={variables}>
+        <AIcompletion query={aiQuery} className={classes['ai-completion']} />
         { input }
         { parsedQuery.value && <Suggestions
             queryMode={settings.appearance.style}

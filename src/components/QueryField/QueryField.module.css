@@ -1,8 +1,45 @@
 .container {
   width: 100%;
   position: relative;
-  margin-left: calc(50vh + 5vw); 
+  margin-left: calc(50vh + 5vw);   
   margin-right: 5vw;
+}
+
+.ai-completion {
+  bottom: 100%;
+  position: absolute;
+  width: 100%;
+  height: calc(50vh - 50% - 20px - 20px);
+  font-size: 1.3em;
+  font-family: Onest;
+  margin-bottom: 20px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.ai-completion > :global(.md-container) {
+  margin-right: 1em;  
+}
+.ai-completion > :global(.md-container) * {
+  /*
+    user-select: text !important;
+  */
+}
+.ai-completion > :global(.md-container) code {
+  backdrop-filter: contrast(0.8);
+  padding-left: 6px;
+  padding-right: 6px;
+}
+.ai-completion > :global(.md-container) pre {
+  backdrop-filter: contrast(0.8);
+  padding: 10px;
+  border-radius: 10px;
+  overflow-x: auto;
+}
+.ai-completion > :global(.md-container) > *:first-child {
+  margin-top: 0;
+}
+.ai-completion > :global(.md-container) > *:last-child {
+  margin-bottom: 0;
 }
 
 .field {
