@@ -1,16 +1,19 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import dateFormat from 'dateformat'
 import classes from './Time.module.css'
 
 function Time() {
   const [time, setTime] = useState(new Date())
-  
-  // sync time update
-  setTimeout(() => {
+
+  useEffect(() => {
+    // set initial time
     setTime(new Date())
-    // main updater
-    timeUpdater(setTime)
-  }, 1000 - new Date().getMilliseconds())
+
+    const timerGlobalRef = Symbol()
+    updateTime(setTime, timerGlobalRef)
+
+    return () => clearTimeout(window[timerGlobalRef])
+  }, [])
 
   return (
     <div className={classes['time']}>
@@ -19,8 +22,15 @@ function Time() {
   )
 }
 
-function timeUpdater(callback, interval=1000) {
-  return setInterval(callback(new Date), interval)
+function updateTime(callback, timerGlobalRef) {
+  window[timerGlobalRef] = setTimeout(() => {
+    callback(new Date())
+    updateTime(callback, timerGlobalRef)
+  }, 1000 - getCurrentMs())
+}
+
+function getCurrentMs() {
+  return Date.now() % 1000
 }
 
 export default Time
