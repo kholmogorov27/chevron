@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import { SettingsContext } from '../../contexts/Settings'
 import dateFormat from 'dateformat'
 import classes from './Time.module.css'
@@ -12,14 +12,16 @@ function Time() {
 
   const [time, setTime] = useState(new Date())
 
+  const timerRef = useRef(null)
+
   useEffect(() => {
     // set initial time
     setTime(new Date())
 
-    const timerGlobalRef = Symbol()
-    updateTime(setTime, timerGlobalRef)
+    updateTime(setTime, timerRef)
 
-    return () => clearTimeout(window[timerGlobalRef])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    return () => clearTimeout(timerRef.current)
   }, [])
 
   const variables = {
@@ -33,10 +35,10 @@ function Time() {
   )
 }
 
-function updateTime(callback, timerGlobalRef) {
-  window[timerGlobalRef] = setTimeout(() => {
+function updateTime(callback, timerRef) {
+  timerRef.current = setTimeout(() => {
     callback(new Date())
-    updateTime(callback, timerGlobalRef)
+    updateTime(callback, timerRef)
   }, 1000 - getCurrentMs())
 }
 
