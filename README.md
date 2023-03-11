@@ -5,7 +5,7 @@
 </p>
 
 <p align=center>
-  Chevron is an <i>animated</i>, <i>minimalistic</i> and highly <i>customisable</i> startpage
+  Сhevron is a <i>powerful</i> and highly <i>functional</i> startpage integrated with chatGPT<br/> and hidden under the super <i>minimalistic</i> and <i>animated</i> design
 </p>
 
 <p align=center>
@@ -27,19 +27,19 @@
 - [Installation](#installation)
   <font size=2>
   - [Static _<sup>(recommended)</sup>_](#static-recommended)
-    </font>
-    <font size=2>
   - [Hosted](#hosted)
-    </font>
-    <font size=2>
   - [GitHub Pages](#github-pages)
     </font>
 - [Usage](#usage)
+  <font size=2>
+  - [Macros and commands](#macros-and-commands)
+  - [Macros menu](#macros-menu)
+  - [Hotkeys](#hotkeys)
+  - [ChatGPT](#chatgpt)
+    </font>
 - [Configuration](#configuration)
   <font size=2>
   - [Settings](#settings)
-    </font>
-    <font size=2>
   - [config.js](#configjs)
     </font>
 - [TODO](#todo)
@@ -47,23 +47,26 @@
 
 ## Features
 
-autosuggestions, history, macros and commands, macros menu, hotkeys, currency converter, calculator, animated and minimalist design
+autosuggestions, history, macros and commands, macros menu, hotkeys, chatGPT integration, currency converter, calculator, animated and minimalist design
 
 ## Screenshots
 
 <table>
   <tbody>
     <tr>
-      <td colspan=2 align=center>
-        <img width="60%" src="https://media0.giphy.com/media/KXsFzsWx0wuY9soUAe/giphy.gif"/>
+      <td>
+        <img src="https://media0.giphy.com/media/KXsFzsWx0wuY9soUAe/giphy.gif"/>
+      </td>
+      <td>
+        <img src="https://i.imgur.com/7j0f88w.png"/>
       </td>
     </tr>
     <tr>
       <td>
-        <img src="https://i.imgur.com/7j0f88w.png"/>
+        <img src="https://i.imgur.com/eaBEk6m.png"/>
       </td>
       <td>
-        <img src="https://i.imgur.com/eaBEk6m.png"/>
+        <img src="https://i.imgur.com/i5cL36f.png"/>
       </td>
     </tr>
     <tr>
@@ -199,7 +202,8 @@ Suggestions generates from history and autosuggestion engine. You can limit numb
 
 By default, you will be redirected to the search page of the search engine, however if the query matches a trigger of a macro, redirecting to this query will take you to the URL, specified in macro properties (`url` property).
 
-- **Macros and commands**:<br/>
+- #### **Macros and commands**:<br/>
+
   _<span style="color: orange">Macro</span>_ is something like a bookmark. It helps access your frequently visited websites.<br/>
   To use a macro, your query must match one of its triggers.
   <pre><span style="color: grey">></span> <span style="color: orange">gh</span></pre>
@@ -210,7 +214,8 @@ By default, you will be redirected to the search page of the search engine, howe
 
   To ignore macros and force using search engine press <kbd><font size=3>Ctrl</font></kbd>
 
-- **Macros menu**:  
+- #### **Macros menu**:
+
   Macros can be pinned to macros menu.
 
   **_Controls_**:
@@ -231,12 +236,21 @@ By default, you will be redirected to the search page of the search engine, howe
     - mouse wheel
     - drag
 
-- **Hotkeys**:  
-  You can use hotkeys to quickly call macros which have `key` property
+- #### **Hotkeys**:
+
+  You can use hotkeys to quickly call macros which have `key` property.
 
   <kbd><font size=3>Shift</font></kbd> + \<**key**\>
 
   > macro must be `pinned`
+
+- #### **ChatGPT**:
+
+  Before using ChatGPT you need to specify your [OpenAI API key](https://platform.openai.com/account/api-keys) in `Settings` &rarr; `Query` &rarr; `AI` &rarr; `Api key`.
+
+  > the key is stored locally on your computer
+
+  To use ChatGPT integration double press <kbd><font size=3>Space</font></kbd> after you typed a query.
 
 ## Configuration
 
@@ -333,7 +347,7 @@ Because of the limitations of the CORS policy, macros icons must be stored in `/
 - [ ] Localisation
 - [x] LocalStorage reset buttons
 - [ ] Refactor seacrh engines system
-- [ ] Time settings 
+- [ ] Time settings
 
 ## Technologies
 
