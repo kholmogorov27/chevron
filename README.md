@@ -54,34 +54,36 @@ autosuggestions, history, macros and commands, macros menu, hotkeys, chatGPT int
 <table>
   <tbody>
     <tr>
-      <td>
-        <img src="https://media0.giphy.com/media/KXsFzsWx0wuY9soUAe/giphy.gif"/>
+      <td colspan=2>
+        <img width="100%" src="https://media0.giphy.com/media/KXsFzsWx0wuY9soUAe/giphy.gif"/>
       </td>
+    </tr>
+    <tr>
       <td>
         <img src="https://i.imgur.com/7j0f88w.png"/>
       </td>
-    </tr>
-    <tr>
       <td>
         <img src="https://i.imgur.com/eaBEk6m.png"/>
       </td>
-      <td>
-        <img src="https://i.imgur.com/i5cL36f.png"/>
-      </td>
     </tr>
     <tr>
+      <td>
+        <img src="https://i.imgur.com/0bNz1vL.png"/>
+      </td>
       <td>
         <img src="https://i.imgur.com/TSY3T6k.png"/>
       </td>
-      <td>
-        <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWZmMTY3YmI1YzkxMDMyNDhmZmFhMTAzZTc2MTcwZWM1NDZiNGJiZSZjdD1n/libdVLG7NrsRv9LYAJ/giphy.gif"/>
-      </td>
     </tr>
     <tr>
       <td>
-        <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzc3ZDI3NTczNWMyMzcyMjUxMmEzNmVhNGIzMTcwYmYyNDZhOTk2MCZjdD1n/P6sYvkQHOpjVTGhZHv/giphy.gif"/>
+        <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWZmMTY3YmI1YzkxMDMyNDhmZmFhMTAzZTc2MTcwZWM1NDZiNGJiZSZjdD1n/libdVLG7NrsRv9LYAJ/giphy.gif"/>
       </td>
       <td>
+        <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzc3ZDI3NTczNWMyMzcyMjUxMmEzNmVhNGIzMTcwYmYyNDZhOTk2MCZjdD1n/P6sYvkQHOpjVTGhZHv/giphy.gif"/>
+      </td>
+    </tr>
+    <tr>
+      <td colspan=2 align=center>
         <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2YyOTI3Yzg3NWU2MzhkZjBjZWVjN2EzMTY2YzNlNGIzZDQzNmVkZiZjdD1n/FoIvawvfxuoQ2IMZ8H/giphy.gif"/>
       </td>
     </tr>
