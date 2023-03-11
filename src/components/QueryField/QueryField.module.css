@@ -16,31 +16,6 @@
   overflow-x: hidden;
   overflow-y: auto;
 }
-.ai-completion > :global(.md-container) {
-  margin-right: 1em;  
-}
-.ai-completion > :global(.md-container) * {
-  /*
-    user-select: text !important;
-  */
-}
-.ai-completion > :global(.md-container) code {
-  backdrop-filter: contrast(0.8);
-  padding-left: 6px;
-  padding-right: 6px;
-}
-.ai-completion > :global(.md-container) pre {
-  backdrop-filter: contrast(0.8);
-  padding: 10px;
-  border-radius: 10px;
-  overflow-x: auto;
-}
-.ai-completion > :global(.md-container) > *:first-child {
-  margin-top: 0;
-}
-.ai-completion > :global(.md-container) > *:last-child {
-  margin-bottom: 0;
-}
 
 .field {
   outline: none;

@@ -1,0 +1,38 @@
+.md-container {
+  margin-right: 1em;  
+}
+.md-container * {
+  /*
+    user-select: text !important;
+  */
+}
+.md-container code {
+  backdrop-filter: contrast(0.8);
+  padding-left: 6px;
+  padding-right: 6px;
+}
+.md-container pre {
+  backdrop-filter: contrast(0.8);
+  padding: 10px;
+  border-radius: 10px;
+  overflow-x: auto;
+}
+.md-container > *:first-child {
+  margin-top: 0;
+}
+.md-container > *:last-child {
+  margin-bottom: 0;
+}
+
+.icon {
+  position: absolute;
+  width: 2em;
+  height: 2em;
+  top: calc(-50vh + 50% + 20px);
+  left: -20px;
+  transform: translateX(-100%);
+  border-radius: 50%;
+  padding: 5px;
+  background: var(--accent);
+  color: var(--secondary);
+}

@@ -2,7 +2,9 @@ import { useContext, useEffect, useRef } from 'react'
 import { useState } from 'react'
 import { SettingsContext } from '../../contexts/Settings'
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
+import Icon from '../../chatGPT/Icon'
 import createCompletion from '../../chatGPT/createCompletion'
+import classes from './AIcompletion.module.css'
 
 const MESSAGES_PREFIX = { 
   role: 'system', 
@@ -46,13 +48,14 @@ function AIcompletion({ query, className }) {
   if (!completion || !enabled) 
     return null
 
-  return (
-    <div className={className}> 
-      <div className='md-container'>
+  return <>
+    <Icon className={classes['icon']}/>
+    <div className={className}>
+      <div className={classes['md-container']}>
         <ReactMarkdown children={completion}/> 
       </div>
     </div>
-  )
+  </>
 }
 
 export default AIcompletion
