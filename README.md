@@ -223,10 +223,8 @@ By default, you will be redirected to the search page of the search engine, howe
   - **open/close**:
 
     - the _macros menu toggle button_ in the right bottom corner
-
       > **Note**
       > The macros menu toggle button will appear only on hover after you click it at least once
-
     - <kbd><font size=3>RMB</font></kbd>
     - <kbd><font size=3>Shift</font></kbd>
 
