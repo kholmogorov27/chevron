@@ -31,8 +31,6 @@ function App() {
   const resetStore = useReset()
   // ---
 
-  const inputRef = useRef(null)
-
   const [showSettings, setShowSettings] = useState(false)
   const [showReset, setShowReset] = useState(false)
 
@@ -132,7 +130,7 @@ function App() {
                     animate={{ opacity: 1 }} 
                     exit={redirected || { opacity: 0 }}>
                       <ActiveElements/>
-                      <QueryField ref={inputRef}/>
+                      <QueryField/>
                       <LayoutButton
                         id='settings'
                         style={{ right: 0, top: 0 }}

@@ -1,4 +1,4 @@
-import { useContext, useCallback, useEffect, memo, forwardRef, useRef } from 'react'
+import { useContext, useCallback, useEffect, memo, useRef } from 'react'
 import useSuggestions from '../../hooks/useSuggestions'
 import useParseQuery from '../../hooks/useParseQuery'
 import useRedirect from '../../hooks/useRedirect'
@@ -15,7 +15,7 @@ import { useState } from 'react'
 
 const DOUBLE_PRESS_THRESHOLD = 300
 
-const QueryField = forwardRef((props, inputRef) => {
+function QueryField () {
   // settings
   const settings = useContext(SettingsContext)
 
@@ -23,6 +23,8 @@ const QueryField = forwardRef((props, inputRef) => {
   const inputFontSize = settings.query.field.fontSize
   const suggestionsFontSize = settings.query.suggestions.fontSize
   const enableCarret = settings.query.field.caret
+
+  const inputRef = useRef(null)
 
   /* store */
   const mode = useStateSelector(store => store.mode)
@@ -106,24 +108,40 @@ const QueryField = forwardRef((props, inputRef) => {
 
   const spacebarLastPressRef = useRef(-1)
   const onKeyPress = useCallback((e) => {
-    if (e.code === 'Space') {
-      if (Date.now() - spacebarLastPressRef.current < DOUBLE_PRESS_THRESHOLD)
-        setAiQuery(query)
+    if (allowedModes.get('QueryField').has(mode)) {
+      if (e.code === 'Space') {
+        if (Date.now() - spacebarLastPressRef.current < DOUBLE_PRESS_THRESHOLD)
+          setAiQuery(query)
 
-      spacebarLastPressRef.current = Date.now()
+        spacebarLastPressRef.current = Date.now()
+      }
+
+      if (document.activeElement !== inputRef.current)
+        inputRef.current.focus()
     }
-  }, [query])
+  }, [query, mode])
   // onKeyPress listener
   useEffect(() => {
     window.addEventListener('keypress', onKeyPress)
     return () => window.removeEventListener('keypress', onKeyPress)    
   }, [onKeyPress])
 
+  // focus grabber
+  useEffect(() => {
+    const grabFocus = () => {
+      if (document.activeElement !== inputRef.current)
+        inputRef.current.focus()
+    }
+
+    document.addEventListener('click', grabFocus)
+    return () => document.removeEventListener('click', grabFocus)    
+  }, [])
+
   // re-focusing the input inputField to focus on the caret
   useEffect(() => {
     inputRef.current.blur()
     inputRef.current.focus()
-  }, [inputRef])
+  }, [])
   
   // css variables
   const variables = {
@@ -134,7 +152,6 @@ const QueryField = forwardRef((props, inputRef) => {
   const input = <input 
     ref={inputRef}
     value={parsedQuery.value}
-    onBlur={e => setTimeout(() => e.target.focus(), 0)}
     className={gC(classes['field'], !selectedSuggestion && classes['selected'])}
     onChange={e => handleQueryChange(e.target.value)}
     style={{
@@ -157,8 +174,7 @@ const QueryField = forwardRef((props, inputRef) => {
             setSelected={suggestion => updateStore({ selectedSuggestion: suggestion })}/> }
     </div>
   )
-})
-QueryField.displayName = 'QueryField'
+}
 
 function getSuggestion(suggestions, selectedSuggestion, option) {
   // current index

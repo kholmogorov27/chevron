@@ -49,8 +49,8 @@ function AIcompletion({ query, className }) {
     return null
 
   return <>
-    <Icon className={classes['icon']}/>
-    <div className={className}>
+    <Icon className={classes['icon']} onClick={e => e.stopPropagation()}/>
+    <div className={className} onClick={e => e.stopPropagation()}>
       <div className={classes['md-container']}>
         <ReactMarkdown children={completion}/> 
       </div>

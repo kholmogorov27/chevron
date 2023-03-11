@@ -9,9 +9,7 @@ const PARAMS = {
 
 function createCompletion(stateSetter, messages, temperature, key, endCallback) {
   const controller = new AbortController()
-
-  console.log(messages);
-
+  
   fetch(API_URL, {
     signal: controller.signal,
     method: 'POST',
