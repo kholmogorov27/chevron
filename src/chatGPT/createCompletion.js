@@ -7,8 +7,10 @@ const PARAMS = {
     // frequency_penalty: 1.0,
 }
 
-function createCompletion(stateSetter, query, temperature, key) {
+function createCompletion(stateSetter, messages, temperature, key, endCallback) {
   const controller = new AbortController()
+
+  console.log(messages);
 
   fetch(API_URL, {
     signal: controller.signal,
@@ -17,57 +19,45 @@ function createCompletion(stateSetter, query, temperature, key) {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + String(key)
     },
-    body: JSON.stringify({ ...PARAMS, messages: [{ role: 'user', content: query }], temperature })
+    body: JSON.stringify({ ...PARAMS, messages, temperature })
   }).then(result => {
-    const stream = result.body
-    fetchStream(stream, stateSetter)
+    fetchStream(result.body, stateSetter).then(content => endCallback({ content, role: 'assistant' }))
   })
 
   return controller
 }
 
-async function fetchStream(stream, stateSetter) {
+function fetchStream(stream, stateSetter) {
+  let content = ''
   const reader = stream.getReader()
-  let charsReceived = 0
-  const li = document.createElement('li')
 
   // read() returns a promise that resolves
   // when a value has been received
-  reader.read().then(
+  return reader.read().then(
     function processText({ done, value }) {
       // Result objects contain two properties:
       // done  - true if the stream has already given you all its data.
       // value - some data. Always undefined when done is true.
       if (done)
-        return li.innerText
-      // value for fetch streams is a Uint8Array
-      charsReceived += value.length
-      const chunk = value
-      li.appendChild(document.createTextNode(chunk))
+        return content
       
-      const list = li.innerText.split(',')
-      const numList = list.map(item => parseInt(item))
-
-      stateSetter('')
-      
-      for (const entry of new TextDecoder('utf-8').decode(new Uint8Array(numList)).split('\n'))
+      for (const entry of new TextDecoder('utf-8').decode(value).split('\n'))
         if (entry) {
           const text = entry.slice(entry.indexOf(':') + 2)
-          
           let response
           try {
             response = JSON.parse(text)
           } catch (error) { /* pass */ }
 
-          if (response && typeof response.choices[0].delta.content === 'string')
-            stateSetter(state => state + response.choices[0].delta.content)
+          if (response && response.choices[0].delta.content)
+            content += response.choices[0].delta.content
+            stateSetter(content)
         }
 
       return reader.read().then(processText)
     }
   )
-
-  return reader
 }
+
 
 export default createCompletion
