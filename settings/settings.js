@@ -101,7 +101,8 @@ const template = {
       temperature: new types.Range(
         0.4,
         { min: 0, max: 1, step: 0.05 }
-      )
+      ),
+      language: new types.Input('')      
     }
   },
   menu: {

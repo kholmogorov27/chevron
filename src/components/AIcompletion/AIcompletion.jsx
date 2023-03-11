@@ -6,10 +6,22 @@ import Icon from '../../chatGPT/Icon'
 import createCompletion from '../../chatGPT/createCompletion'
 import classes from './AIcompletion.module.css'
 
-const MESSAGES_PREFIX = { 
-  role: 'system', 
-  content: 'You are ChatGPT, a large language model trained by OpenAI.\nKnowledge cutoff: 2021-09\nCurrent date and time: ' + new Date().toLocaleString()
+function getAiConfigMessage(language) {
+  let config = {
+    role: 'system', 
+    content: 'You are ChatGPT, a large language model trained by OpenAI. \nKnowledge cutoff: 2021-09'
+  }
+
+  // specify current date and time
+  config.content += ' \nCurrent date and time: ' + new Date().toLocaleString() + '.'
+
+  // specify language
+  if (language)
+    config.content += ' \nAnswer in ' + language + ' language.'
+ 
+  return config
 }
+
 
 function AIcompletion({ query, className }) {
   // settings
@@ -17,6 +29,7 @@ function AIcompletion({ query, className }) {
   const enabled = settings.query.AI.enabled
   const apiKey = settings.query.AI.apiKey
   const temperature = settings.query.AI.temperature
+  const language = settings.query.AI.language
   
   const [completion, setCompletion] = useState('')
   const chatLogRef = useRef([])
@@ -29,7 +42,7 @@ function AIcompletion({ query, className }) {
 
     if (query) {
       const currentQuery = { content: query, role: 'user' }
-      const messages = [MESSAGES_PREFIX, ...chatLogRef.current, currentQuery ]
+      const messages = [getAiConfigMessage(language), ...chatLogRef.current, currentQuery ]
       
       controller = createCompletion(
         setCompletion,
@@ -43,7 +56,7 @@ function AIcompletion({ query, className }) {
       setCompletion('')
 
     return () => controller && controller.abort()
-  }, [query, temperature, apiKey, enabled])
+  }, [query, temperature, apiKey, enabled, language])
 
   if (!completion || !enabled) 
     return null
