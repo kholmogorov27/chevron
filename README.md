@@ -55,7 +55,7 @@ autosuggestions, history, macros and commands, macros menu, hotkeys, chatGPT int
   <tbody>
     <tr>
       <td colspan=2>
-        <img width="100%" src="https://media0.giphy.com/media/KXsFzsWx0wuY9soUAe/giphy.gif"/>
+        <img width="100%" src="https://thumbs.gfycat.com/SizzlingAcrobaticArmadillo.webp"/>
       </td>
     </tr>
     <tr>
