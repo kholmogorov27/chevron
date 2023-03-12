@@ -726,10 +726,10 @@ const CONFIG = {
           template: 'https://search.brave.com/search?q={$}'
         },
         calculator: {
-          template: 'https://search.brave.com/search?q={$}'
+          template: 'https://search.brave.com/search?q={@}'
         },
         currency: {
-          template: 'https://search.brave.com/search?q={$}'
+          template: 'https://search.brave.com/search?q={@}'
         }
       }
     }
