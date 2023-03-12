@@ -344,7 +344,7 @@ Because of the limitations of the CORS policy, macros icons must be stored in `/
 - [ ] Fix transition animations
 - [ ] Macros and Commands editor
 - [ ] Macros Menu categories
-- [ ] Localization
+- [ ] Localisation
 - [x] LocalStorage reset buttons
 - [ ] Refactor search engines system
 - [ ] Time settings
