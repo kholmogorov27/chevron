@@ -712,6 +712,26 @@ const CONFIG = {
           template: 'https://www.bing.com/search?q={@}'
         }
       }
+    },
+    brave: {
+      name: 'Brave',
+      bgColor: {
+        type: 'gradient',
+        gradientType: 'linear',
+        colors: ['#FB542B', '#343546']
+      },
+      textColor: '#e8e8e8',
+      types: {
+        query: {
+          template: 'https://search.brave.com/search?q={$}'
+        },
+        calculator: {
+          template: 'https://search.brave.com/search?q={$}'
+        },
+        currency: {
+          template: 'https://search.brave.com/search?q={$}'
+        }
+      }
     }
   }
 }
