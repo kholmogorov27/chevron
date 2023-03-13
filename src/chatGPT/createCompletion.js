@@ -7,26 +7,37 @@ const PARAMS = {
     // frequency_penalty: 1.0,
 }
 
-function createCompletion(stateSetter, messages, temperature, key, endCallback) {
+function createCompletion(stateSetter, messages, temperature, key) {
   const controller = new AbortController()
   
-  fetch(API_URL, {
-    signal: controller.signal,
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + String(key)
-    },
-    body: JSON.stringify({ ...PARAMS, messages, temperature })
-  }).then(result => {
-    fetchStream(result.body, stateSetter).then(content => endCallback({ content, role: 'assistant' }))
+  return ({ 
+    controller,
+    promise: new Promise((resolve, reject) => {
+      fetch(API_URL, {
+        signal: controller.signal,
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + String(key)
+        },
+        body: JSON.stringify({ ...PARAMS, messages, temperature })
+      })
+      .then(result => {
+        fetchStream(
+          result.body, 
+          result.ok ? dataParser(stateSetter) : errorParser)
+        .then(content => {
+          result.ok
+            ? resolve({ content, role: 'assistant' })
+            : reject(content)
+        })
+      })
+    })
   })
-
-  return controller
 }
 
-function fetchStream(stream, stateSetter) {
-  let content = ''
+function fetchStream(stream, parser) {
+  let content = null
   const reader = stream.getReader()
 
   // read() returns a promise that resolves
@@ -39,23 +50,52 @@ function fetchStream(stream, stateSetter) {
       if (done)
         return content
       
-      for (const entry of new TextDecoder('utf-8').decode(value).split('\n'))
-        if (entry) {
-          const text = entry.slice(entry.indexOf(':') + 2)
-          let response
-          try {
-            response = JSON.parse(text)
-          } catch (error) { /* pass */ }
+      const decoded = new TextDecoder('utf-8').decode(value)
+      console.log(decoded)
 
-          if (response && response.choices[0].delta.content)
-            content += response.choices[0].delta.content
-            stateSetter(content)
-        }
+      content = parser(decoded, content)
 
       return reader.read().then(processText)
     }
   )
 }
 
+function dataParser(stateSetter) {
+  return (data, acc) => {
+    for (const entry of data.split('\n'))
+      if (entry) {
+        const text = entry.slice(entry.indexOf(':') + 2)
+        let response
+        try {
+          response = JSON.parse(text)
+        } catch (error) { /* pass */ }
+  
+        if (response && typeof response.choices[0].delta.content === 'string') {
+          if (typeof acc === 'string')
+            acc += response.choices[0].delta.content
+          else
+            acc = response.choices[0].delta.content
+          
+          stateSetter(acc)
+        }
+      }
+
+    return acc
+  }
+}
+
+function errorParser(data, acc) {
+  const parsed = JSON.parse(data)
+  if (!acc)
+    acc = {}
+  
+  acc.code = parsed.error.code
+  if (typeof acc.message === 'string')
+    acc.message += parsed.error.message
+  else
+    acc.message = parsed.error.message
+  
+  return acc
+}
 
 export default createCompletion

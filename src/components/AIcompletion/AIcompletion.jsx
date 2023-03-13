@@ -44,13 +44,17 @@ function AIcompletion({ query, className }) {
       const currentQuery = { content: query, role: 'user' }
       const messages = [getAiConfigMessage(language), ...chatLogRef.current, currentQuery ]
       
-      controller = createCompletion(
+      const completionRequest = createCompletion(
         setCompletion,
         messages,
         temperature,
-        apiKey,
-        result => chatLogRef.current.push(currentQuery, result)
+        apiKey
       )
+      completionRequest.promise
+      .then(result => chatLogRef.current.push(currentQuery, result))
+      .catch(error => setCompletion(`## ⚠️  ${error.code || 'error'} \n \`\`\`${error.message || 'No description available ☹️'}\`\`\``))
+
+      controller = completionRequest.controller
     }
     else
       setCompletion('')
