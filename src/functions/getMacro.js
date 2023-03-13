@@ -1,9 +1,7 @@
-import config from '../../public/config'
-
 function getMacro(query, normalisedURL=null) {
   // searching for a macro by url
   if (normalisedURL) {
-    for (const macro of config.macros) {
+    for (const macro of window.CONFIG.macros) {
       // comparing query url and current macro url
       if (normalisedURL === macro.normalisedURL) {
         return {options: macro, command: null}
@@ -11,7 +9,7 @@ function getMacro(query, normalisedURL=null) {
     }
   } else {
     // searching for a macro by triggers
-    for (const macro of config.macros) {
+    for (const macro of window.CONFIG.macros) {
       // iterating through triggers
       for (const trigger of macro.triggers) {
         // query must be equal to a trigger or ends with a command 
@@ -42,7 +40,7 @@ function getCommand(query) {
   let foundCommand = null
 
   // sorting commands to don't skip a command which starts the same as an another command
-  const sortedCommands = config.commands.sort((a, b) => a.trigger.length > b.trigger.length)
+  const sortedCommands = window.CONFIG.commands.sort((a, b) => a.trigger.length > b.trigger.length)
 
   for (const command of sortedCommands)
     // if it's a command

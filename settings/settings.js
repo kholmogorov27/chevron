@@ -1,9 +1,8 @@
 import * as types from './settingTypes'
-import config from '../public/config'
 
 const searchEngines = {}
-for (const key in config.engines)
-  searchEngines[key] = config.engines[key].name
+for (const key in window.CONFIG.engines)
+  searchEngines[key] = window.CONFIG.engines[key].name
 
 const template = {
   general: {

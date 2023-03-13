@@ -7,11 +7,10 @@ import { Splide, SplideSlide } from '@splidejs/react-splide'
 import { Grid } from '@splidejs/splide-extension-grid'
 import Card from '../Card/Card'
 import { allowedModes } from '../../rules'
-import config from '../../../public/config'
 import classes from './MacrosMenu.module.css'
 import '@splidejs/react-splide/css'
 
-const pinnedMacros = config.macros.filter(m => m.pinned)
+const pinnedMacros = window.CONFIG.macros.filter(m => m.pinned)
 
 function MacrosMenu({ visibility, fullVisibility }) {
   // settings

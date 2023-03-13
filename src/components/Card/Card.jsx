@@ -1,7 +1,6 @@
 import { isValidElement, useMemo, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import useTransitions from '../../hooks/useTransitions'
-import ICONS from '../../../public/icons'
 import { motion } from 'framer-motion'
 import { TbBan } from 'react-icons/tb'
 import getCssGradient from '../../functions/generationUtils/getCssGradient'
@@ -179,8 +178,8 @@ function getIcon(icon, color) {
     return <div>{icon}</div>
 
   // if icon name passed
-  else if (typeof icon === 'string' && Object.prototype.hasOwnProperty.call(ICONS, icon)) 
-    return <div dangerouslySetInnerHTML={{__html: ICONS?.[icon]}}/>
+  else if (typeof icon === 'string' && Object.prototype.hasOwnProperty.call(window.ICONS, icon)) 
+    return <div dangerouslySetInnerHTML={{__html: window.ICONS?.[icon]}}/>
 
   // fallback icon
   return <div><TbBan color={color}/></div>
