@@ -1,5 +1,7 @@
 /* eslint-disable no-undef */
-const Service = require('node-' + process.argv[2]).Service
+const systemName = process.argv[2] || 'linux'
+
+const Service = require('node-' + systemName).Service
 const { log } = require('console')
 
 // Create a new service object
@@ -13,7 +15,7 @@ const svc = new Service({
   ]
 })
 
-if (svc.exists) {
+if (systemName === 'linux' ? svc.exists() : svc.exists) {
   log('Unregistering the service')
   svc.uninstall()
 } else {
