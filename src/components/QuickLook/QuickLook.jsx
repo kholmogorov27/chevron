@@ -37,7 +37,6 @@ function QuickLook ({ visibility, onAnimationEnd }) {
   const color = theme.chevron
   const topCurvature = settings.chevron.quickLook.topCurvature
   const bottomCurvature = settings.chevron.quickLook.bottomCurvature
-  const fontSize = settings.chevron.quickLook.fontSize
   const showMacrosLabel = settings.chevron.quickLook.showMacrosLabel
   const notifyAboutForcedSearchEngine = settings.query.notifyAboutForcedSearchEngine
   
@@ -232,7 +231,7 @@ function QuickLook ({ visibility, onAnimationEnd }) {
 
   const variables = {
     '--thickness': thickness + 'px',
-    '--fontSize': fontSize + 'em',
+    '--fontSize': '5vmin',
     '--textColor': parsedQuery.textColor
   }
 

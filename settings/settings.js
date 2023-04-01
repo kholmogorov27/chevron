@@ -49,11 +49,6 @@ const template = {
       {format: '{@}%' }
     ),
     quickLook: {
-      fontSize: new types.Range(
-        2.5,
-        { min: 0.1, max: 10, step: 0.1 }, 
-        { format: '{@}em' }
-      ),
       marquee: new types.Switch(true),
       showMacrosLabel: new types.Switch(false),
       // hidden
