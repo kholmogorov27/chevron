@@ -12,7 +12,7 @@ const PLATE_TRANSITION_DURATION = .75
 const LOGO_TRANSITION_DURATION = .15
 const LOGO_TRANSITION_DELAY = .25
 // from min(height, width) of the viewport
-const LOGO_SCALE_SIZE = .3
+const LOGO_SCALE_SIZE = .2
 
 function Card({ active=false, visibility=true, icon, bgColor, textColor, hotKey, isHintActive=false, onClick }) {
   const [isAnimated, setIsAnimated] = useState(false)
