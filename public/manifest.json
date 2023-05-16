@@ -1,0 +1,28 @@
+{
+    "name": "Beautiful New Tab",
+    "version": "1.0",
+    "description": "A beautiful new tab page",
+    "manifest_version": 3,
+    "chrome_url_overrides": {
+        "newtab": "index.html"
+    },
+    "permissions": [
+        "storage",
+        "https://www.google.com/*"
+    ],
+    "host_permissions": [
+        "*://*.google.com/*"
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "index.html",
+                "assets/*"
+            ],
+            "matches": ["https://www.google.com/*"]
+        }
+    ],
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self'"
+    }
+}

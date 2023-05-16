@@ -43,12 +43,16 @@
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
     "@vitejs/plugin-react": "^2.2.0",
+    "babel-loader": "^9.1.2",
+    "babel-plugin-jsx-remove-data-test-id": "^3.0.0",
     "eslint": "^8.29.0",
     "eslint-plugin-react": "^7.31.11",
     "eslint-plugin-react-hooks": "^4.6.0",
     "gh-pages": "^5.0.0",
     "http-server": "^14.1.1",
     "vite": "^3.2.3",
-    "vite-plugin-singlefile": "^0.13.3"
+    "vite-plugin-singlefile": "^0.13.3",
+    "webpack": "^5.82.1",
+    "webpack-cli": "^5.1.1"
   }
 }

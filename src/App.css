@@ -1,14 +1,11 @@
 .app {
   background: var(--background);
+  background: var(--background-image);
   color: var(--primary);
   width: 100vw;
   height: 100vh;
   overflow: hidden;
   font-size: 0.6em;
-
-  background: url("https://images.unsplash.com/photo-1477346611705-65d1883cee1e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
-
-  /* background: url("https://images.unsplash.com/photo-1616004667892-d348f7349d39?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
