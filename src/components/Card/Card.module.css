@@ -8,15 +8,6 @@
   overflow: hidden;
 }
 .card::before {
-  display: block;
-  content: '';
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background: var(--card);
-}
-/* dark theme (default) */
-.card::before {
   filter: brightness(130%);
 }
 .card:hover::before {
@@ -97,19 +88,6 @@ body[data-color-scheme=light] .hint {
 }
 .card:hover .plate, .card:active .plate, .plate.detached {
   background-size: 100% 100%;
-}
-.plate::before {
-  content: '';
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: #2a2a2a;
-  transition: opacity .6s;
-}
-/* dark theme (default) */
-.plate::before {
-  opacity: .3;
 }
 .card:hover .plate::before, .card:active .plate::before, .plate.detached::before {
   opacity: .1;

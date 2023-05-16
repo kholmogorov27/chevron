@@ -26,7 +26,7 @@ const template = {
     locale: new types.Input('en', '[language]-[COUNTRY]'),
     tabTitle: new types.Input('Chevron'),
     // hidden
-    redirectTarget: new types.Switch('_self', ['_self', '_blank'])
+    redirectTarget: new types.Switch('_self', ['_self', '_blank']),
   },
   appearance: {
     colorScheme: new types.List('auto', ['auto', 'light', 'dark']),
@@ -35,17 +35,17 @@ const template = {
       default: new types.Theme()
     },
     // hidden; TODO: realistic
-    style: new types.List('default', ['default'])
+    style: new types.List('default', ['default']),
+    backgroundImageURL: new types.Input('https://images2.alphacoders.com/103/1033287.jpg'),
   },
   chevron: {
     thickness: new types.Range(
-      15,
+      10,
       { min: 1, max: 50 }, 
       { format: '{@}px' }
     ),
     size: new types.Range(
-      20, 
-      undefined, 
+      10, 
       {format: '{@}%' }
     ),
     quickLook: {
@@ -81,7 +81,7 @@ const template = {
         { format: '{@}em' }
       ),
       autocompleteLimit: new types.Range(
-        10,
+        5,
         { min: 0, max: 50 }
       ),
       historyLimit: new types.Range(
@@ -118,7 +118,7 @@ const template = {
     drag: new types.Switch(true),
     time: {
       fontSize: new types.Range(
-        1,
+        1.5,
         { min: 0.1, max: 10, step: 0.1 }, 
         { format: '{@}em' }
       ),

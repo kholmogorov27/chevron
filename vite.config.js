@@ -1,9 +1,14 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import { viteSingleFile } from 'vite-plugin-singlefile'
+import reactRefresh from '@vitejs/plugin-react';
+import { defineConfig } from 'vite';
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), viteSingleFile()],
-  base: ''
-})
+  plugins: [reactRefresh()],
+  build: {
+    chunkSizeWarningLimit: 1000, // Adjust this limit if needed
+    rollupOptions: {
+      output: {
+        manualChunks: undefined, // Disable automatic chunk splitting
+      },
+    },
+  },
+});

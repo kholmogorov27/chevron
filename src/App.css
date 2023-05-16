@@ -1,9 +1,15 @@
 .app {
   background: var(--background);
+  background: var(--background-image);
   color: var(--primary);
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  font-size: 0.6em;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
 }
 .app * {
   /* cursor: default; */
@@ -33,11 +39,12 @@ body, html, #root {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  font-size: medium;
 }
 
 body {
   position: relative;
-  font-family: var(--font), Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   color: var(--primary);
 }
 
