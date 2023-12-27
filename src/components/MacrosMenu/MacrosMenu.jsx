@@ -71,7 +71,7 @@ function MacrosMenu({ visibility, fullVisibility }) {
         for (const macro of pinnedMacros.filter(m => m.key)) {
           // Support of all keyboards by using the key instead of the code
           // Supporting "keyX" or "X" in the config + case insensitive
-          if (e.key.toUpperCase() === macro.key.toUpperCase() || ("key" + e.key).toUpperCase() === macro.key.toUpperCase()) {
+          if (e.key.toUpperCase() === macro.key || ("key" + e.key).toUpperCase() === macro.key.toUpperCase()) {
             activateCard(macro)
             break
           }
