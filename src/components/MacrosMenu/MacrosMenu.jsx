@@ -64,9 +64,14 @@ function MacrosMenu({ visibility, fullVisibility }) {
     const handleKeypress = e => {
       if (!allowedModes.get('Chevron').has(mode)) return
 
+      // If the shift key is pressed
       if (e.shiftKey) {
-        for (const macro of pinnedMacros) {
-          if (e.code === macro.key) {
+
+        // For every macro if not null
+        for (const macro of pinnedMacros.filter(m => m.key)) {
+          // Support of all keyboards by using the key instead of the code
+          // Supporting "keyX" or "X" in the config + case insensitive
+          if (e.key.toUpperCase() === macro.key.toUpperCase() || ("key" + e.key).toUpperCase() === macro.key.toUpperCase()) {
             activateCard(macro)
             break
           }
