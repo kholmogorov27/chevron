@@ -1,0 +1,31 @@
+:global(.feed-slider .splide__slide) {
+    background: var(--card);
+    filter: brightness(130%);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    gap: 30px;
+}
+
+.item {
+    font-family: Arial;
+    text-align: left;
+    font-size: medium;
+    min-width: 150px;
+    height: auto;
+    padding: 10px;
+}
+
+.title {
+    font-size: 1.1em;
+    text-align: center;
+}
+
+.description {
+    font-size: 0.8em;
+}

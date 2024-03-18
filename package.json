@@ -36,7 +36,8 @@
     "react-icons": "^4.7.1",
     "react-inlinesvg": "^3.0.2",
     "react-markdown": "^8.0.5",
-    "react-scroll-into-view-if-needed": "^3.0.1"
+    "react-scroll-into-view-if-needed": "^3.0.1",
+    "rss-to-json": "^2.1.1"
   },
   "devDependencies": {
     "@simbathesailor/use-what-changed": "^2.0.0",

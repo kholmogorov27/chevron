@@ -8,6 +8,7 @@ import { motion, useAnimationControls } from 'framer-motion'
 import { easeInOutQuad, easeInQuad, easeOutCubic, easeOutQuad } from '../../functions/animUtils/easings'
 import dC from '../../functions/generationUtils/dCommandToString'
 import classes from './Chevron.module.css'
+import News from "../News/News.jsx";
 
 /* 
 animations:
@@ -281,6 +282,7 @@ function Chevron({ visibility, onAnimationEnd }) {
             <motion.div 
               initial={{ translateY: '100%'}}
               animate={controls.topMenu}>
+              <News/>
               <Time/>
             </motion.div>
         </div>

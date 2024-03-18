@@ -100,7 +100,7 @@ function MacrosMenu({ visibility, fullVisibility }) {
     }
   }
   return (
-    <div className={classes['container']}>
+    <div className={classes['container'] + ' macros-menu'}>
       <Splide {...splideOptions}>
         {
           pinnedMacros.map(pm => {
@@ -117,7 +117,7 @@ function MacrosMenu({ visibility, fullVisibility }) {
                   onClick={() => activateCard(pm)}/>
               </SplideSlide>
             )
-          })      
+          })
         }
       </Splide>
     </div>
